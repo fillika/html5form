@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Инструкция</title>
+    <title>html5 form validation template</title>
 </head>
 <body>
-    <h1>Hello!</h1>
+<div class="main">
+    <form class="form-container">
+        <header>
+            <h3>Sign in</h3>
+        </header>
+        <p class="input-container">
+            <input class="invalid" autocomplete="off" id="js-input-name" type="text" placeholder=" " required>
+            <label for="js-input-name">Type your name</label> <small>Error text</small>
+        </p>
+
+        <p class="input-container">
+            <input class="valid" autocomplete="off" id="js-input-email" type="email" placeholder=" " required>
+            <label for="js-input-email">Type your email</label> <small>Error text</small>
+        </p>
+
+        <p class="input-container">
+            <input autocomplete="off" id="js-input-phone" type="tel" placeholder=" " required>
+            <label for="js-input-phone">Type your phone</label> <small>Error text</small>
+        </p>
+
+        <p>
+            <button>Done</button>
+        </p>
+    </form>
+</div>
 </body>
 </html>
