@@ -30,7 +30,10 @@
         ],
         "max-len": [
             "error",
-            120
+            120,
+            {
+                "ignoreRegExpLiterals": true
+            }
         ]
     }
 }
