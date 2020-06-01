@@ -16,7 +16,7 @@
         "no-unused-vars": "warn",
         "linebreak-style": [
             "error",
-            "windows"
+            "unix"
         ],
         "object-curly-spacing": [
             "error",
@@ -34,6 +34,7 @@
             {
                 "ignoreRegExpLiterals": true
             }
-        ]
+        ],
+        "class-methods-use-this": "off"
     }
 }

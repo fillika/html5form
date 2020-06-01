@@ -33,6 +33,13 @@ $labelColor: #a59f9f;
 
     small {
         visibility: hidden;
+        font-style: italic;
+        color: red;
+        font-size: 0.8em;
+
+        &.visible {
+            visibility: visible;
+        }
     }
 
 
@@ -55,6 +62,15 @@ $labelColor: #a59f9f;
             width: 100%;
         }
 
+
+        &.invalid {
+            color: red;
+
+            input {
+                color: red !important;
+            }
+        }
+
         input[type="email"],
         input[type="text"],
         input[type="tel"],
@@ -75,7 +91,7 @@ $labelColor: #a59f9f;
                 position: absolute;
                 left: 10px;
                 color: $labelColor;
-                transform: translateY(-120%);
+                transform: translateY(-70%);
                 top: 0;
                 font-size: 0.8em;
             }
@@ -99,14 +115,11 @@ $labelColor: #a59f9f;
                 color: red;
             }
 
-            &.invalid {
-                color: red;
-            }
 
             &:focus {
 
                 & ~ label {
-                    transform: translateY(-120%);
+                    transform: translateY(-70%);
                     top: 0;
                     font-size: 0.8em;
                 }
