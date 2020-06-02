@@ -22,6 +22,7 @@ $labelColor: #a59f9f;
     padding: 30px 20px;
     margin: auto;
     font-size: 20px;
+    position: relative;
 
     header {
         margin: 1.5em 0;
@@ -29,6 +30,33 @@ $labelColor: #a59f9f;
 
     & * {
         box-sizing: border-box;
+    }
+
+    &__message,
+    &__main {
+        z-index: 9;
+    }
+
+    &__message {
+        display: none;
+
+        &.active {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            z-index: 10;
+        }
+
+        &-text {
+            color: $secondColor;
+            font-size: 2em;
+        }
     }
 
     small {
@@ -51,7 +79,7 @@ $labelColor: #a59f9f;
             content: '';
             display: block;
             position: absolute;
-            bottom: 1.2em;
+            top: 2.3em;
             height: 3px;
             width: 0;
             background-color: $secondColor;

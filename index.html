@@ -9,33 +9,37 @@
 <body>
 <div class="main">
     <form id="signInForm" class="form-container">
-        <header>
-            <h3>Sign in</h3>
-        </header>
-        <p class="input-container">
-            <input minlength="5" data-type="text" autocomplete="off" data-input="name" id="js-input-name" type="text" placeholder=" " required>
-            <label for="js-input-name">Type your name</label> <small>Слишком короткое имя</small>
-        </p>
+        <div class="form-container__main">
+            <header>
+                <h3>Sign in</h3>
+            </header>
+            <p class="input-container">
+                <input minlength="5" data-type="text" autocomplete="off" data-input="name" id="js-input-name" type="text" placeholder=" " required>
+                <label for="js-input-name">Type your name</label> <small>Слишком короткое имя</small>
+            </p>
 
-        <p class="input-container">
-            <input data-type="email" data-input="email" id="js-input-email" type="email" placeholder=" " required>
-            <label for="js-input-email">Type your email</label>
-            <small>Введите корректный email</small>
-        </p>
+            <p class="input-container">
+                <input data-type="email" data-input="email" id="js-input-email" type="email" placeholder=" " required>
+                <label for="js-input-email">Type your email</label> <small>Введите корректный email</small>
+            </p>
 
-        <p class="input-container">
-            <input data-input="phone" id="js-input-phone" type="tel" placeholder=" " required>
-            <label for="js-input-phone">Type your phone</label> <small>Error text</small>
-        </p>
+            <p class="input-container">
+                <input data-input="phone" id="js-input-phone" type="tel" placeholder=" " required>
+                <label for="js-input-phone">Type your phone</label> <small>Error text</small>
+            </p>
 
-        <p class="input-container">
-            <input minlength="4" data-input="password" data-type="password" id="js-input-password" type="password" placeholder=" " required>
-            <label for="js-input-password">Type your password</label> <small>Пароль не должен содержать менее 6 символов</small>
-        </p>
+            <p class="input-container">
+                <input minlength="4" data-input="password" data-type="password" id="js-input-password" type="password" placeholder=" " required>
+                <label for="js-input-password">Type your password</label> <small>Пароль не должен содержать менее 6 символов</small>
+            </p>
 
-        <p>
-            <button>Done</button>
-        </p>
+            <p>
+                <button>Done</button>
+            </p>
+        </div>
+        <div class="form-container__message">
+            <p class="form-container__message-text">Ваше сообщение отправлено</p>
+        </div>
     </form>
 </div>
 </body>

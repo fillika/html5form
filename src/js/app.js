@@ -28,87 +28,76 @@ class ValidationInput {
    * @param {event} e
    */
   input(e) {
+    const input = e.target;
     const { type } = e.target.dataset;
+    const parent = input.parentElement;
+    const errorField = parent.querySelector('small');
     const fn = this.$validateFunctions[type];
 
     // Проверка на случай отсутствия переданного типа и функции
     if (fn) {
-      this.flag = fn(e);
+      this.flag = fn(input, errorField);
+
+      /**
+       * Функция сравнения полученного результата проверки
+       */
+      this.compare(this.flag, parent, errorField);
     }
   }
 
+  // NOTE event тут submit
   submit(e) {
     e.preventDefault();
+
+    if (1) {
+      this.$el.querySelector('.form-container__message')
+        .classList
+        .add('active');
+    }
+
+    // eslint-disable-next-line no-param-reassign,no-return-assign
+    this.$inputs.forEach(input => input.value = '');
+  }
+
+  compare(flag, parent, errorField) {
+    if (!flag) {
+      parent.classList.add('invalid');
+      errorField.classList.add('visible');
+    } else {
+      parent.classList.remove('invalid');
+      errorField.classList.remove('visible');
+    }
   }
 }
 
 const params = {
-  email(e) {
-    const email = e.target;
-    const parent = email.parentElement;
-    const small = parent.querySelector('small');
+  email(input, errorField) {
+    const result = is.email(input.value);
+    const field = errorField;
 
-    const result = is.email(email.value);
-
-
-    if (!result) {
-      parent.classList.add('invalid');
-      small.classList.add('visible');
-
-      // if (errorMessage) {
-      //   small.innerHTML = errorMessage;
-      // }
-    } else {
-      parent.classList.remove('invalid');
-      small.classList.remove('visible');
-    }
-
+    field.innerText = 'Введите корректный email';
     return result;
   },
-  password(e) {
-    const password = e.target;
-    const parent = password.parentElement;
-    const small = parent.querySelector('small');
+  password(input, errorField) {
+    const field = errorField;
+    const regExp = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*/gm;
+    const check = input.value.match(regExp);
+    const flag = true;
 
-    let flag = true;
-    // логика проверки
-
-    if (password.value.length <= 6) {
-      flag = false;
-    }
-
-    if (!flag) {
-      parent.classList.add('invalid');
-      small.classList.add('visible');
-      //
-      // if (errorMessage) {
-      //   small.innerHTML = errorMessage;
-      // }
-    } else {
-      parent.classList.remove('invalid');
-      small.classList.remove('visible');
+    if (!check) {
+      field.innerText = 'Пароль должен содержать минимум 8 символов, одна цифра, одна буква в верхнем регистре и одна' +
+        ' в нижнем';
+      return check;
     }
 
     return flag;
   },
-  text(e) {
-    const text = e.target;
-    const parent = text.parentElement;
-    const small = parent.querySelector('small');
-
+  text(input) {
     let flag = true;
     // логика проверки
 
-    if (text.value.length <= 5) {
+    if (input.value.length <= 5) {
       flag = false;
-    }
-
-    if (!flag) {
-      parent.classList.add('invalid');
-      small.classList.add('visible');
-    } else {
-      parent.classList.remove('invalid');
-      small.classList.remove('visible');
     }
 
     return flag;
