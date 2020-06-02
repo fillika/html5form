@@ -13,14 +13,14 @@
             <h3>Sign in</h3>
         </header>
         <p class="input-container">
-            <input minlength="5" data-input-text autocomplete="off" data-input="name" id="js-input-name" type="text" placeholder=" " required>
-            <label for="js-input-name">Type your name</label> <small>Error text</small>
+            <input minlength="5" data-type="text" autocomplete="off" data-input="name" id="js-input-name" type="text" placeholder=" " required>
+            <label for="js-input-name">Type your name</label> <small>Слишком короткое имя</small>
         </p>
 
         <p class="input-container">
-            <input data-input="email" id="js-input-email" type="email" placeholder=" " required>
+            <input data-type="email" data-input="email" id="js-input-email" type="email" placeholder=" " required>
             <label for="js-input-email">Type your email</label>
-            <small>Error text</small>
+            <small>Введите корректный email</small>
         </p>
 
         <p class="input-container">
@@ -29,8 +29,8 @@
         </p>
 
         <p class="input-container">
-            <input minlength="4" data-input="password" id="js-input-password" type="password" placeholder=" " required>
-            <label for="js-input-password">Type your password</label> <small>Error text</small>
+            <input minlength="4" data-input="password" data-type="password" id="js-input-password" type="password" placeholder=" " required>
+            <label for="js-input-password">Type your password</label> <small>Пароль не должен содержать менее 6 символов</small>
         </p>
 
         <p>
